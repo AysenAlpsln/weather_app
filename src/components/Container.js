@@ -4,10 +4,10 @@ import Dropdown from './Dropdown'
 
 const Container = () => {
   return (
-    <>
+    <div className="bg-container">
         <Dropdown />
         <Days />
-    </>
+    </div>
   )
 }
 

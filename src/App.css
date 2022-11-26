@@ -1,43 +1,202 @@
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+}
+
+.bg-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    color: #ffffff;
+    font-family: "Roboto";
+    padding: 24px;
+    background-image: linear-gradient(to bottom, #b96fa1, #5a3f8c);
+    min-height: 100vh;
+}
+
 .city_container{
-  background-color: #EBF4FA;
-  padding: 20px 0 20px 10px;
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 30px;
+  width: 60%;
+  
 }
 
 .cities{
-  height: 30px;
-  width: 140px;
-  border: 2px solid #b9bbbb;
-  border-radius: 7px;
+  background-color: transparent;
+  height: 40px;
+  width: 150px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #fff !important;
   padding: 0 5px;
+  color: #fff;
+  font-size: 16px;
+  
 }
 
-.days{
-  display: flex;
+
+option{
+  color: #5a3f8c;
 }
 
-.day_container{
-  display: flex;
-  flex-direction: column;
-  margin: 0 10px;
+
+.today-weather-details-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
 }
 
-.name{
-  text-align: center;
-  color: #b9bbbb;
+.location {
+    font-size: 34px;
 }
 
-.picture{
-  margin-bottom: 20px;
+.today-weather-status {
+    font-size: 16px;
 }
 
-.degrees{
-  display: flex;
-  justify-content: center;
-}
-.degrees > p{
-  margin: 3px;
+.humidity {
+    font-size: 14px;
 }
 
-.down{
-  color: #b9bbbb;
+.wind {
+    font-size: 14px;
+}
+
+.today-weather-status-image {
+    margin-left: 25px;
+    width: 140px;
+}
+
+.weekly-weather-details-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff20;
+    border: 1px solid #e9e9e930;
+    border-radius: 16px;
+}
+
+.daily-weather-details-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid #e9e9e930;
+}
+
+.last-day-card {
+    border: none;
+}
+
+.date {
+    margin: 0px;
+    font-size: 14px;
+    width: 25%;
+}
+
+.weather-status-image {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    width: 40px;
+}
+
+.temperature-range-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.max-temperature {
+    margin: 0px;
+    font-weight: 700;
+    font-size: 14px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.min-temperature {
+    margin: 0px;
+    font-size: 12px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.weather-status {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+@media screen and (min-width: 900px) {
+    .today-weather-details-container {
+        justify-content: flex-start;
+    }
+
+    .location {
+        font-size: 56px;
+    }
+
+    .today-weather-status {
+        font-size: 32px;
+    }
+
+    .humidity {
+        font-size: 18px;
+    }
+
+    .wind {
+        font-size: 18px;
+    }
+
+    .today-weather-status-image {
+        margin-left: 64px;
+        width: 238px;
+    }
+
+    .weekly-weather-details-container {
+        flex-direction: row;
+        background-color: transparent;
+        border: none;
+        width: 870px;
+        justify-content: space-between;
+    }
+
+    .daily-weather-details-card {
+        flex-direction: column;
+        border-bottom: none;
+    }
+
+    .date {
+        font-size: 16px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .weather-status-image {
+        width: 80px;
+    }
+
+    .temperature-range-container {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .max-temperature {
+        font-size: 18px;
+    }
+
+    .min-temperature {
+        font-size: 14px;
+    }
+
+    .weather-status {
+        font-size: 16px;
+
+    }
 }
