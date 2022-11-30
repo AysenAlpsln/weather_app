@@ -2,83 +2,103 @@ import React from 'react'
 import { useWeather } from '../contexts/WeatherContext';
 
 const Days = () => {
-  const { hour, days, icons, temps, city } = useWeather();
+  const { hour, days, icons, temps, status, city } = useWeather();
+  /*const dayDetails = [
+    hour,
+    days,
+    icons,
+    temps,
+    city,
+    status
+  ]*/
+
+  const getStatus = (status) => {
+    switch(status) {
+      case "Clouds":
+        return "Cloudy";
+        break;
+        
+      case "Clear":
+        return "Sunny";
+        break;
+
+      case "Rain":
+        return "Rainy";
+        break;
+
+      case "Snow":
+        return "Snowy";
+        break;
+
+      default:
+        return ""
+    }
+  }
 
   return (
     <div className="weather-container">
       <div className="today-weather-details-container">
         <div className="today-weather-details">
           <h1 className="location">{city}</h1>
-          <p className="today-weather-status">Sunny</p>
-          <p className="humidity">78% Humidity</p>
-          <p className="wind">5.15 km/h Wind</p>
+          <p className="today-weather-status">{getStatus(status[0])}</p>
+          <p className="humidity">{temps[0].humidity} Humidity</p>
+          <p className="wind">{temps[0].windSpeed} km/h Wind</p>
         </div>
-        <img className="today-weather-status-image" src="https://assets.ccbp.in/frontend/intermediate-rwd/partly-sunny-img.png" />
+        {/* <img className="today-weather-status-image" src="https://assets.ccbp.in/frontend/intermediate-rwd/partly-sunny-img.png" /> */}
+        <img className="today-weather-status-image" src={`https://openweathermap.org/img/wn/${icons[0]}@4x.png`} />
       </div>
       <div className="weekly-weather-details-container">
+        
         <div className="daily-weather-details-card">
           <p className="date">Today</p>
-          <img className="weather-status-image" src="https://assets.ccbp.in/frontend/intermediate-rwd/partly-cloudy-img.png" />
+          <img className="weather-status-image" src={`https://openweathermap.org/img/wn/${icons[0]}@2x.png`} />
           <div className="temperature-range-container">
-            <p className="max-temperature">32<sup>o</sup></p>
-            <p className="min-temperature">24<sup>o</sup></p>
+            <p className="max-temperature">{temps[0].max}<sup>o</sup></p>
+            <p className="min-temperature">{temps[0].min}<sup>o</sup></p>
           </div>
-          <p className="weather-status">Cloudy</p>
+          <p className="weather-status">{getStatus(status[0])}</p>
         </div>
+        
         <div className="daily-weather-details-card">
-          <p className="date">Friday</p>
-          <img className="weather-status-image" src="https://assets.ccbp.in/frontend/intermediate-rwd/rain-with-sun-img.png" />
+          <p className="date">{days[1]}</p>
+          <img className="weather-status-image" src={`https://openweathermap.org/img/wn/${icons[1]}@2x.png`} />
           <div className="temperature-range-container">
-            <p className="max-temperature">26<sup>o</sup></p>
-            <p className="min-temperature">20<sup>o</sup></p>
+            <p className="max-temperature">{temps[1].max}<sup>o</sup></p>
+            <p className="min-temperature">{temps[1].min}<sup>o</sup></p>
           </div>
-          <p className="weather-status">Rainy</p>
+          <p className="weather-status">{getStatus(status[1])}</p>
         </div>
+
         <div className="daily-weather-details-card">
-          <p className="date">Saturday</p>
-          <img className="weather-status-image" src="https://assets.ccbp.in/frontend/intermediate-rwd/sunny-img.png" />
+          <p className="date">{days[2]}</p>
+          <img className="weather-status-image" src={`https://openweathermap.org/img/wn/${icons[2]}@2x.png`} />
           <div className="temperature-range-container">
-            <p className="max-temperature">48<sup>o</sup></p>
-            <p className="min-temperature">36<sup>o</sup></p>
+            <p className="max-temperature">{temps[2].max}<sup>o</sup></p>
+            <p className="min-temperature">{temps[2].min}<sup>o</sup></p>
           </div>
-          <p className="weather-status">Sunny</p>
+          <p className="weather-status">{getStatus(status[2])}</p>
         </div>
+
         <div className="daily-weather-details-card">
-          <p className="date">Sunday</p>
-          <img className="weather-status-image" src="https://assets.ccbp.in/frontend/intermediate-rwd/rain-with-sun-img.png" />
+          <p className="date">{days[3]}</p>
+          <img className="weather-status-image" src={`https://openweathermap.org/img/wn/${icons[3]}@2x.png`} />
           <div className="temperature-range-container">
-            <p className="max-temperature">26<sup>o</sup></p>
-            <p className="min-temperature">18<sup>o</sup></p>
+            <p className="max-temperature">{temps[3].max}<sup>o</sup></p>
+            <p className="min-temperature">{temps[3].min}<sup>o</sup></p>
           </div>
-          <p className="weather-status">Rainy</p>
+          <p className="weather-status">{getStatus(status[3])}</p>
         </div>
+
         <div className="daily-weather-details-card">
-          <p className="date">Monday</p>
-          <img className="weather-status-image" src="https://assets.ccbp.in/frontend/intermediate-rwd/sunny-img.png" />
+          <p className="date">{days[4]}</p>
+          <img className="weather-status-image" src={`https://openweathermap.org/img/wn/${icons[4]}@2x.png`} />
           <div className="temperature-range-container">
-            <p className="max-temperature">44<sup>o</sup></p>
-            <p className="min-temperature">32<sup>o</sup></p>
+            <p className="max-temperature">{temps[4].max}<sup>o</sup></p>
+            <p className="min-temperature">{temps[4].min}<sup>o</sup></p>
           </div>
-          <p className="weather-status">Sunny</p>
+          <p className="weather-status">{getStatus(status[4])}</p>
         </div>
-        <div className="daily-weather-details-card">
-          <p className="date">Tuesday</p>
-          <img className="weather-status-image" src="https://assets.ccbp.in/frontend/intermediate-rwd/partly-cloudy-img.png" />
-          <div className="temperature-range-container">
-            <p className="max-temperature">35<sup>o</sup></p>
-            <p className="min-temperature">26<sup>o</sup></p>
-          </div>
-          <p className="weather-status">Cloudy</p>
-        </div>
-        <div className="daily-weather-details-card last-day-card">
-          <p className="date">Wednesday</p>
-          <img className="weather-status-image" src="https://assets.ccbp.in/frontend/intermediate-rwd/rain-with-sun-img.png" />
-          <div className="temperature-range-container">
-            <p className="max-temperature">29<sup>o</sup></p>
-            <p className="min-temperature">22<sup>o</sup></p>
-          </div>
-          <p className="weather-status">Rainy</p>
-        </div>
+        
       </div>
     </div>
   )

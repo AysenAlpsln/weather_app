@@ -46,7 +46,7 @@ export const WeatherContextProvider = ({children}) =>{
     axios(`https://api.openweathermap.org/data/2.5/forecast?q=${select}&appid=${apikey}&cnt=56`)
     .then((res) => {
       var forecast = res.data.list;
-      cityName = res.data.city.name.slice(0,-9)
+      cityName = res.data.city.name.replace("Province","").trim()
       let todayDate = forecast[0].dt_txt;
       todayDate = todayDate.substring(11,19);
       forecast.map((item) => {
@@ -66,6 +66,7 @@ export const WeatherContextProvider = ({children}) =>{
   let days = [];
   let icons = [];
   let temps = [];
+  let status = [];
 
   for(let item of weathers) {
     let date = new Date(item.dt_txt);
@@ -77,8 +78,11 @@ export const WeatherContextProvider = ({children}) =>{
     temps.push({
       //dereceler çevrilir.
       max:(item.main.temp_max -271).toFixed(),
-      min:(item.main.temp_min -271).toFixed()
+      min:(item.main.temp_min -271).toFixed(),
+      humidity:item.main.humidity,
+      windSpeed:item.wind?.speed,
     });
+    status.push(item.weather[0].main)
   }
 
   const values = {
@@ -86,6 +90,7 @@ export const WeatherContextProvider = ({children}) =>{
     days,
     icons,
     temps,
+    status,
     city
   };
 
