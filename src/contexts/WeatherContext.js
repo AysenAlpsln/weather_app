@@ -60,7 +60,8 @@ export const WeatherContextProvider = ({children}) =>{
     });
   }, [select]);
 
-  let weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",]
+  
+  let weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
   let hour = weathers[0].dt_txt.substring(11, 16);
   let days = [];
@@ -68,11 +69,12 @@ export const WeatherContextProvider = ({children}) =>{
   let temps = [];
   let status = [];
 
+  
   for(let item of weathers) {
-    let date = new Date(item.dt_txt);
-    date = date.getDay();
+    let date = new Date(item.dt_txt.slice(0,10));
+    var dateDay = date.getDay();
     //her gün değeri için weekdays array içinden gün ismi çekilir.
-    days.push(weekdays[date]);
+    days.push(weekdays[dateDay]);
     //her gün için hava durumu iconu çekilir.
     icons.push(item.weather[0].icon);
     temps.push({
@@ -82,7 +84,7 @@ export const WeatherContextProvider = ({children}) =>{
       humidity:item.main.humidity,
       windSpeed:item.wind?.speed,
     });
-    status.push(item.weather[0].main)
+    status.push(item.weather[0].description)
   }
 
   const values = {

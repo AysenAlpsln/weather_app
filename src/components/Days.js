@@ -14,19 +14,26 @@ const Days = () => {
 
   const getStatus = (status) => {
     switch(status) {
-      case "Clouds":
+      case "broken clouds":
+      case "overcast clouds":
         return "Cloudy";
         break;
         
-      case "Clear":
+      case "scattered clouds":
+      case "few clouds":
+        return "Partly Cloudy";
+        break;
+        
+      case "clear sky":
         return "Sunny";
         break;
 
-      case "Rain":
+      case "light rain":
         return "Rainy";
         break;
 
-      case "Snow":
+      case "light snow":
+      case "snow":
         return "Snowy";
         break;
 
@@ -36,22 +43,26 @@ const Days = () => {
   }
 
   const getIcon = (icon) => {
-    console.log(typeof icon, icon)
     switch(icon) {
-      case "03n":
-        return "icons/cloud.png";
-        break;
-        
       case "01n":
         return "icons/sun.png";
         break;
+        
+      case "03n":
+      case "02n":
+        return "icons/cloudy.png";
+        break;
 
+      case "04n":
+        return "icons/cloud.png";
+        break;
+        
       case "10n":
         return "icons/rainy.png";
         break;
 
       case "13n":
-        return "icons/sun.png";
+        return "icons/snowy.png";
         break;
 
       default:
@@ -74,58 +85,77 @@ const Days = () => {
       <div className="weekly-weather-details-container">
         
         <div className="daily-weather-details-card">
-          <p className="date">Today</p>
-          <img className="weather-status-image" src={getIcon(icons[0])} />
-          <div className="temperature-range-container">
-            <p className="max-temperature">{temps[0].max}<sup>o</sup></p>
-            <p className="min-temperature">{temps[0].min}<sup>o</sup></p>
+          <div className='weather-main'>
+            <p className="date">Today</p>
+            <img className="weather-status-image" src={getIcon(icons[0])} />
           </div>
-          <p className="weather-status">{getStatus(status[0])}</p>
+          <div className='weather-detail'>
+            <div className="temperature-range-container">
+              <p className="max-temperature">{temps[0].max}<sup>o</sup></p>
+              <p className="min-temperature">{temps[0].min}<sup>o</sup></p>
+            </div>
+            <p className="weather-status">{getStatus(status[0])}</p>
+          </div>
         </div>
         
         <div className="daily-weather-details-card">
-          <p className="date">{days[1]}</p>
-          <img className="weather-status-image" src={getIcon(icons[1])} />
-          <div className="temperature-range-container">
-            <p className="max-temperature">{temps[1].max}<sup>o</sup></p>
-            <p className="min-temperature">{temps[1].min}<sup>o</sup></p>
+          <div className='weather-main'>
+            <p className="date">{days[1]}</p>
+            <img className="weather-status-image" src={getIcon(icons[1])} />
           </div>
-          <p className="weather-status">{getStatus(status[1])}</p>
+          <div className='weather-detail'>
+            <div className="temperature-range-container">
+              <p className="max-temperature">{temps[1].max}<sup>o</sup></p>
+              <p className="min-temperature">{temps[1].min}<sup>o</sup></p>
+            </div>
+            <p className="weather-status">{getStatus(status[1])}</p>
+          </div>
         </div>
 
         <div className="daily-weather-details-card">
-          <p className="date">{days[2]}</p>
-          <img className="weather-status-image" src={getIcon(icons[2])} />
-          <div className="temperature-range-container">
-            <p className="max-temperature">{temps[2].max}<sup>o</sup></p>
-            <p className="min-temperature">{temps[2].min}<sup>o</sup></p>
+          <div className='weather-main'>
+            <p className="date">{days[2]}</p>
+            <img className="weather-status-image" src={getIcon(icons[2])} />
           </div>
-          <p className="weather-status">{getStatus(status[2])}</p>
+          <div className='weather-detail'>
+            <div className="temperature-range-container">
+              <p className="max-temperature">{temps[2].max}<sup>o</sup></p>
+              <p className="min-temperature">{temps[2].min}<sup>o</sup></p>
+            </div>
+            <p className="weather-status">{getStatus(status[2])}</p>
+          </div>
         </div>
 
         <div className="daily-weather-details-card">
-          <p className="date">{days[3]}</p>
-          <img className="weather-status-image" src={getIcon(icons[3])} />
-          <div className="temperature-range-container">
-            <p className="max-temperature">{temps[3].max}<sup>o</sup></p>
-            <p className="min-temperature">{temps[3].min}<sup>o</sup></p>
+          <div className='weather-main'>
+            <p className="date">{days[3]}</p>
+            <img className="weather-status-image" src={getIcon(icons[3])} />
           </div>
-          <p className="weather-status">{getStatus(status[3])}</p>
+          <div className='weather-detail'>
+            <div className="temperature-range-container">
+              <p className="max-temperature">{temps[3].max}<sup>o</sup></p>
+              <p className="min-temperature">{temps[3].min}<sup>o</sup></p>
+            </div>
+            <p className="weather-status">{getStatus(status[3])}</p>
+          </div>
         </div>
 
         <div className="daily-weather-details-card">
-          <p className="date">{days[4]}</p>
-          <img className="weather-status-image" src={getIcon(icons[4])} />
-          <div className="temperature-range-container">
-            <p className="max-temperature">{temps[4].max}<sup>o</sup></p>
-            <p className="min-temperature">{temps[4].min}<sup>o</sup></p>
+          <div className='weather-main'>
+            <p className="date">{days[4]}</p>
+            <img className="weather-status-image" src={getIcon(icons[4])} />
           </div>
-          <p className="weather-status">{getStatus(status[4])}</p>
+          <div className='weather-detail'>
+            <div className="temperature-range-container">
+              <p className="max-temperature">{temps[4].max}<sup>o</sup></p>
+              <p className="min-temperature">{temps[4].min}<sup>o</sup></p>
+            </div>
+            <p className="weather-status">{getStatus(status[4])}</p>
+          </div>
         </div>
-        
       </div>
     </div>
   )
 }
 
-export default Days
+export default Days;
